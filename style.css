@@ -1,0 +1,482 @@
+/* ==========================================================================
+   1. CORE ARCHITECTURE & DESIGN SYSTEM (WELL-TRAINED DEVELOPER SPEC)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #ff5722;       /* Premium Construction Orange */
+    --primary-dark: #e64a19;  /* Deep Orange Hover Scale */
+    --secondary: #101820;      /* Luxury Deep Onyx Blue/Black */
+    --light-bg: #f8f9fa;       /* Clean Light Gray Texture */
+    --white: #ffffff;
+    --text-dark: #2d3748;
+    --text-muted: #718096;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Common Button Configurations */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-secondary:hover {
+    background-color: #1a2634;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   2. TOP UTILITY RIBBON (UPPER BAR)
+   ========================================================================== */
+.top-bar {
+    background-color: var(--secondary);
+    color: var(--white);
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-bar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-info span {
+    margin-right: 24px;
+}
+
+.top-info i {
+    color: var(--primary);
+    margin-right: 6px;
+}
+
+.top-socials a {
+    color: #a0aec0;
+    margin-left: 16px;
+    transition: var(--transition);
+}
+
+.top-socials a:hover {
+    color: var(--primary);
+}
+
+/* ==========================================================================
+   3. NAVIGATION HEADER
+   ========================================================================== */
+.main-header {
+    background-color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 16px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--secondary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
+.btn-call {
+    background-color: rgba(255, 87, 34, 0.1);
+    color: var(--primary);
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.btn-call:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* ==========================================================================
+   4. DYNAMIC HERO CANVAS (DRIBBUG STYLING PATTERN)
+   ========================================================================== */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%);
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    color: var(--primary);
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 600px;
+}
+
+.hero-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.badge i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.popular-searches {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.popular-searches a {
+    color: var(--secondary);
+    text-decoration: underline;
+    margin-left: 8px;
+    font-weight: 500;
+}
+
+/* Fallback Structural Graphic Card Rendering */
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+.fallback-graphic-card {
+    background-color: var(--secondary);
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    color: var(--white);
+    border-left: 6px solid var(--primary);
+    box-shadow: 0 20px 40px rgba(16, 24, 32, 0.15);
+}
+
+.fallback-graphic-card i {
+    font-size: 4.5rem;
+    color: var(--primary);
+    margin-bottom: 24px;
+}
+
+.fallback-graphic-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.fallback-graphic-card p {
+    color: #a0aec0;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   5. SPECIALIZED CORE SERVICE GRID
+   ========================================================================== */
+.services-section {
+    padding: 100px 0;
+    background-color: var(--light-bg);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.25rem;
+    color: var(--secondary);
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--white);
+    padding: 40px 30px;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+    position: relative;
+    top: 0;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    border-bottom: 3px solid var(--primary);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 87, 34, 0.08);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    color: var(--secondary);
+    margin-bottom: 14px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   6. NUMERICAL PROOF ARCHITECTURE BLOCK (STATS PANEL)
+   ========================================================================== */
+.stats-section {
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #cbd5e0;
+}
+
+/* ==========================================================================
+   7. STRUCTURAL CORE FOOTER HOUSING
+   ========================================================================== */
+.footer-core {
+    background-color: #0b1015;
+    color: var(--white);
+    padding: 80px 0 30px 0;
+    border-top: 4px solid var(--primary);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-brand h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.footer-brand h3 span {
+    color: var(--primary);
+}
+
+.footer-brand p {
+    color: #718096;
+}
+
+.footer-links-group h4, .footer-contact-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-links-group h4::after, .footer-contact-info h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.footer-links-group ul {
+    list-style: none;
+}
+
+.footer-links-group ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links-group ul li a {
+    color: #a0aec0;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links-group ul li a:hover {
+    color: var(--primary);
+    padding-left: 6px;
+}
+
+.footer-contact-info p {
+    color: #a0aec0;
+    margin-bottom: 14px;
+}
+
+.footer-contact-info i {
+    color: var(--primary);
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 30px;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+/* ==========================================================================
+   8. ULTRASONIC FLUID RESPONSIVE ENGINE (LAPTOP, IPHONE, ANDROID COHORT)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .hero-image-wrapper {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {

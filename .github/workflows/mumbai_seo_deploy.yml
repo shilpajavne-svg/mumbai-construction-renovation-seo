@@ -1,0 +1,22 @@
+name: Mumbai Construction Live Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🎉 Syncing Web Files
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Fetch Latest Code
+      uses: actions/checkout@v3
+    
+    - name: 🚀 Transfer Files via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.server }}
+        username: ${{ secrets.username }}
+        password: ${{ secrets.password }}
+        server-dir: ./public_html/

@@ -1,0 +1,22 @@
+name: MilesWeb Final Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🎉 Code Transfer
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 🚀 Sync Files to MilesWeb
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.server }}
+        username: ${{ secrets.username }}
+        password: ${{ secrets.password }}
+        server-dir: ./public_html/

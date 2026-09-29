@@ -1,0 +1,22 @@
+name: Deploy Website to MilesWeb
+
+on:
+  push:
+    branches:
+      - main  # अगर आपकी ब्रांच का नाम master है, तो यहाँ main की जगह master लिख दें
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 🚀 Sync Files to MilesWeb
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.server }}
+        username: ${{ secrets.username }}
+        password: ${{ secrets.password }}
+        server-dir: ./public_html/
